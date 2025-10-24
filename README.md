@@ -20,3 +20,4 @@ The review articles were scraped from the websites using ethical web scraping pr
 These articles were then summarised using the Google T5-base LLM model. 
 This model was choosen because of its high performance in text to text scenarios.
 After the summarization a basic front end was created to show the summarization to the end user.
+This front end was implemented using flask.
