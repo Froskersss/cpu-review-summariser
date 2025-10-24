@@ -16,4 +16,6 @@ intel i5 13600k
 ryzen 5 5600x
 Why this lineup?
 This lineup was chosen because it presented all the different tiers of cpus of both competitors.
-Hope you like the project and definitely i would love to add more in the future.
+The review articles were scraped from the websites using ethical web scraping practices. 
+These articles were then summarised using the Google T5-base LLM model. 
+This model was choosen because of its high performance in text to text scenarios.
