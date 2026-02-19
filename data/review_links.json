@@ -1,0 +1,26 @@
+{
+    "Ryzen 9 9950X3D": {
+        "techpowerup": "https://www.techpowerup.com/review/amd-ryzen-9-9950x3d/",
+        "techspot": "https://www.techspot.com/review/2965-amd-ryzen-9-9950x3d/"
+    },
+    "INTEL 9 285K": {
+        "techpowerup": "https://www.techpowerup.com/review/intel-core-ultra-9-285k/",
+        "techspot": "https://www.techspot.com/review/2911-intel-core-ultra-9-285k/"
+    },
+    "INTEL i7 14700k": {
+        "techpowerup": "https://www.techpowerup.com/review/intel-core-i7-14700k/",
+        "techspot": "https://www.techspot.com/products/processors/intel-core-i7-14700k.285188/"
+    },
+    "Ryzen 7 7700x": {
+        "techpowerup": "https://www.techpowerup.com/review/amd-ryzen-7-7700x/",
+        "techspot": "https://www.techspot.com/review/2537-amd-ryzen-7700x/"
+    },
+    "INTEL i5 13600k": {
+        "techpowerup": "https://www.techpowerup.com/review/intel-core-i5-13600k/",
+        "techspot": "https://www.techspot.com/products/processors/intel-core-i5-13600k-39ghz-socket-1700.260540/"
+    },
+    "Ryzen 5 5600x": {
+        "techpowerup": "https://www.techpowerup.com/review/amd-ryzen-5-5600x/",
+        "techspot": "https://www.techspot.com/review/2135-amd-ryzen-5600x/"
+    }
+}

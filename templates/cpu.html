@@ -1,0 +1,219 @@
+{% extends 'base.html' %}
+{% block title %}{{ cpu_name }} - CPU Reviews{% endblock %}
+
+{% block styles %}
+<style>
+.review-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    margin: 40px auto;
+    max-width: 900px;
+    padding: 20px;
+}
+
+.review-header {
+    text-align: center;
+    width: 100%;
+}
+
+.review-header h1 {
+    margin: 0 0 10px 0;
+    color: #222;
+}
+
+.manufacturer-badge {
+    display: inline-block;
+    background: #007bff;
+    color: white;
+    padding: 6px 14px;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.review-content {
+    display: flex;
+    gap: 40px;
+    width: 100%;
+    align-items: flex-start;
+}
+
+.cpu-image {
+    flex: 0 0 300px;
+    display: flex;
+    justify-content: center;
+}
+
+.cpu-image img {
+    max-width: 100%;
+    max-height: 400px;
+    width: auto;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 0 12px rgba(0,0,0,0.2);
+    object-fit: contain;
+    background: #f9f9f9;
+    padding: 10px;
+}
+
+.review-sources {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.review-source-section {
+    background: #f8f9fa;
+    border: 1px solid #dee2e6;
+    border-radius: 8px;
+    padding: 20px;
+    text-align: center;
+}
+
+.review-source-section h2 {
+    margin: 0 0 15px 0;
+    color: #222;
+    font-size: 1.2em;
+}
+
+.review-source-section p {
+    color: #666;
+    margin: 10px 0 15px 0;
+    font-size: 0.95em;
+}
+
+.review-button {
+    display: inline-block;
+    padding: 12px 24px;
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: all 0.3s ease;
+}
+
+.review-button:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004085 100%);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+}
+
+.review-button.techpowerup {
+    background: linear-gradient(135deg, #ed1c24 0%, #b71c1c 100%);
+}
+
+.review-button.techpowerup:hover {
+    background: linear-gradient(135deg, #b71c1c 0%, #8b1515 100%);
+}
+
+.review-button.techspot {
+    background: linear-gradient(135deg, #1e90ff 0%, #0047ab 100%);
+}
+
+.review-button.techspot:hover {
+    background: linear-gradient(135deg, #0047ab 0%, #003380 100%);
+}
+
+.navigation {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.nav-btn {
+    padding: 10px 20px;
+    background: #6c757d;
+    color: white;
+    text-decoration: none;
+    border-radius: 4px;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.nav-btn:hover {
+    background: #5a6268;
+}
+
+.no-link {
+    color: #999;
+    font-style: italic;
+    padding: 12px 24px;
+    display: inline-block;
+    background: #e2e3e5;
+    border-radius: 6px;
+}
+
+@media (max-width: 768px) {
+    .review-content {
+        flex-direction: column;
+        gap: 20px;
+    }
+    
+    .cpu-image {
+        flex: 1;
+        width: 100%;
+    }
+    
+    .review-sources {
+        width: 100%;
+    }
+}
+</style>
+{% endblock %}
+
+{% block content %}
+<div class="review-container">
+    <div class="review-header">
+        <h1>{{ cpu_name }}</h1>
+        <span class="manufacturer-badge">{{ manufacturer }}</span>
+    </div>
+
+    <div class="review-content">
+        <div class="cpu-image">
+            <img src="{{ url_for('static', filename=cpu_img.replace('static/', '')) }}" alt="{{ cpu_name }} image" />
+        </div>
+
+        <div class="review-sources">
+            <!-- TechPowerUp Review -->
+            <div class="review-source-section">
+                <h2>📊 TechPowerUp Review</h2>
+                <p>Read the comprehensive technical review from TechPowerUp with detailed benchmarks and analysis.</p>
+                {% if techpowerup_url %}
+                    <a href="{{ techpowerup_url }}" target="_blank" class="review-button techpowerup">
+                        Read Full TechPowerUp Review
+                    </a>
+                {% else %}
+                    <span class="no-link">Review link not available</span>
+                {% endif %}
+            </div>
+
+            <!-- TechSpot Review -->
+            <div class="review-source-section">
+                <h2>🔬 TechSpot Review</h2>
+                <p>Check the in-depth analysis and performance testing from TechSpot's review team.</p>
+                {% if techspot_url %}
+                    <a href="{{ techspot_url }}" target="_blank" class="review-button techspot">
+                        Read Full TechSpot Review
+                    </a>
+                {% else %}
+                    <span class="no-link">Review link not available</span>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    <div class="navigation">
+        <a href="{{ url_for('cpu_summary', cpu_name=cpu_name) }}" class="nav-btn">View Summary</a>
+        <a href="{{ url_for('index') }}" class="nav-btn">Back to Home</a>
+    </div>
+</div>
+{% endblock %}
